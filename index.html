@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>UNEP SDG Project</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-		<link href="css/circular.css" rel="stylesheet"/>
-		
-		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
- 
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>UNEP SDG Project</title>
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/circular.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</head>
     <body id="page-top">
 
         <!-- Navigation-->
@@ -48,216 +47,8 @@
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center" color=#0083b3>
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <!--  <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." /> -->
-
-                 <script>
-                    // function to handle success
-                    function init() {
-                        document.getElementById("userText").value = "";
-                    }
-                    window.onload = init;
-                    String.prototype.trim = function () {
-                        return this.replace(/^\s+|\s+$/g, "");
-                    }
-                    function success() {
-                        
-                        var check = false;
-                        var x = document.getElementById("algoResult");
-                        var y = document.getElementById("userText").value.trim();
-                        console.log(y);
-                        if (y == '') {
-                            
-                            alert("enter some text");
-                            
-                        }
-                        //else  (y.text != null) {
-                        else x.style.display = 'block';
-                        //}
-                        //else (x.style.display = 'none' && check == true)
-                          
-
-                        
-                      
-
-                                                           /*     var myHeaders = new Headers();
-                                                                myHeaders.append("Content-Type", "application/json");
-
-                                                                var raw = JSON.stringify({
-                                                                    "text": document.getElementById("userText").value
-                                                                });
-                                                                console.log(document.getElementById("userText").value)
-                                                                var requestOptions = {
-                                                                    method: 'POST',
-                                                                    headers: myHeaders,
-                                                                    body: raw,
-                                                                    redirect: 'follow'
-                                                                };
-
-                                                                fetch("http://127.0.0.1:5000/sdgOP", requestOptions)
-                                                                    .then(response => response.text())
-                                                                    .then(result => console.log(result))
-                                                                    .catch(error => console.log('error', error));
-                                                            */
-															//js for result
-																														var myHeaders = new Headers();
-															myHeaders.append("Content-Type", "application/json");
-
-															var raw = JSON.stringify({
-															  "text": "123"
-															});
-
-															var requestOptions = {
-															  method: 'POST',
-															  headers: myHeaders,
-															  body: raw,
-															  redirect: 'follow'
-															};
-															
-															  
-															fetch("http://127.0.0.1:5000/default", requestOptions)
-															  .then(res => res.json())
-																.then(data => obj = data)
-																.then(data => calculate(data))
-																.then(() => console.log(obj))
-															  .catch(error => console.log('error', error));
-															  
-															  let calculate = (data) => {
-																
-															for (var key in data) {
-																		if (data.hasOwnProperty(key)) {
-																			console.log(key + " -> " + data[key]);
-																			
-																			let anchorElement=document.createElement('a')
-																			anchorElement.setAttribute('href','https://sdgs.un.org/goals')
-																			let imageElement= document.createElement('img')
-																			imageElement.setAttribute('class', 'img-fluid rounded mb-5')
-																			imageElement.setAttribute('style', 'float: left;')
-																			imageElement.src='assets/images/'+key+'.png'
-																			anchorElement.appendChild(imageElement)
-																			
-																			
-																			if(data[key]>50){
-                                                                          	var x= data[key]-50;
-                                                                            let divElement = document.createElement('div')
-                                                                            divElement.setAttribute('class', 'progress yellow')
-                                                                            let spanElement1 = document.createElement('span')
-																			spanElement1.setAttribute('class','progress-left')
-
-																			let spanElement2 = document.createElement('span')
-																			spanElement2.setAttribute('class','progress-bar'+key)
-																			//spanElement2.style.animation = ' animation: load-'+x+' 1.5s linear forwards 1.8s'
-																			spanElement1.appendChild(spanElement2)
-																			
-																			divElement.appendChild(spanElement1)
-																			
-																			let spanElement3 = document.createElement('span')
-																			spanElement3.setAttribute('class','progress-right')
-
-																			let spanElement4 = document.createElement('span')
-																			spanElement4.setAttribute('class','progress-bar')
-																			//spanElement4.style.cssText = ' animation: load-'+data[key]+' 1.8s linear forwards'
-
-																			spanElement3.appendChild(spanElement4)
-
-																			
-																			divElement.appendChild(spanElement3)
-																			
-																			
-																			var style = document.createElement('style');
-																			style.innerText = '.progress .progress-bar'+key+' {    width: 100%;    height: 100%;    background: none;    border-width: 12px;    border-style: solid;    position: absolute;    top: 0}.progress .progress-left .progress-bar'+key+' {    left: 100%;    border-top-right-radius: 90px;    border-bottom-right-radius: 90px;    border-left: 0;    -webkit-transform-origin: center left;    transform-origin: center left}.progress.yellow .progress-left .progress-bar'+key+' {    animation: load-'+x+' 1.5s linear forwards 1.8s} .progress.yellow .progress-bar'+key+' {    border-color: #fdba04}'
-																			document.head.appendChild(style);
-
-																			let divElement2 = document.createElement('div')
-																			divElement2.setAttribute('class','progress-value')
-																			divElement2.innerHTML= data[key]+'%'
-																			
-																			divElement.appendChild(divElement2)
-
-																			let brElement=document.createElement('br')
-
-																			
-																			
-																			document.getElementById('algoResult').appendChild(anchorElement)
-																			document.getElementById('algoResult').appendChild(brElement)
-																			document.getElementById('algoResult').appendChild(brElement)
-																			document.getElementById('algoResult').appendChild(divElement)
-																			document.getElementById('algoResult').appendChild(brElement)
-																			}
-																			
-																			
-																			//https://bbbootstrap.com/snippets/circle-progress-bar-percent-loading-81242857
-																			
-																			
-																			
-																			if(data[key]<=50){
-                                                                          	
-                                                                            let divElement = document.createElement('div')
-                                                                            divElement.setAttribute('class', 'progress yellow')
-                                                                            let spanElement1 = document.createElement('span')
-																			spanElement1.setAttribute('class','progress-left')
-
-																			let spanElement2 = document.createElement('span')
-																			spanElement2.setAttribute('class','progress-bar')
-																			<!-- spanElement2.style.cssText = 'animation: none' -->
-																			spanElement1.appendChild(spanElement2)
-
-																			
-
-																			let spanElement3 = document.createElement('span')
-																			spanElement3.setAttribute('class','progress-right')
-
-																			let spanElement4 = document.createElement('span')
-																			spanElement4.setAttribute('class','progress-bar'+key)
-																			<!-- spanElement4.style.animation = 'animation: loading-2  1.8s linear forwards'
- -->
-																			spanElement3.appendChild(spanElement4)
-
-																			
-																			var style = document.createElement('style');
-																			style.innerText = '.progress .progress-bar'+key+' {       width: 100%;    height: 100%;    background: none;    border-width: 12px;    border-style: solid;    position: absolute;    top: 0}.progress .progress-right .progress-bar'+key+' {  left: -100%;    border-top-left-radius: 90px;    border-bottom-left-radius: 90px;    border-right: 0;    -webkit-transform-origin: center right;    transform-origin: center right;   animation: loading-1 1.8s linear forwards}.progress.yellow .progress-right .progress-bar'+key+' {    animation: load-'+data[key]+' 1.8s linear forwards} .progress.yellow .progress-bar'+key+' {    border-color: #fdba04}'
-																			document.head.appendChild(style);
-																			divElement.appendChild(spanElement1)
-																			divElement.appendChild(spanElement3)
-
-																			let divElement2 = document.createElement('div')
-																			divElement2.setAttribute('class','progress-value')
-																			divElement2.innerHTML= data[key]+'%'
-																			
-																			divElement.appendChild(divElement2)
-
-																			let brElement=document.createElement('br')
-
-																			
-																			
-																			document.getElementById('algoResult').appendChild(anchorElement)
-																			document.getElementById('algoResult').appendChild(brElement)
-																			document.getElementById('algoResult').appendChild(brElement)
-																			document.getElementById('algoResult').appendChild(divElement)
-																			document.getElementById('algoResult').appendChild(brElement)
-																			}
-																			
-																			
-																			
-																			
-																}
-					
-			
-
-					
-															  }
-																
-															 
-															}
-															
-															
-															
-														
-															
-															}
-															
-                </script>
-
+               
+      
                 <form>
                     <div class="form-group">
 
@@ -675,7 +466,7 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/images/SDG3.png" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Sustainable Development Goal 3 of the 2030 Agenda for Sustainable Development is to “ensure healthy lives and promoting well-being for all at all ages”. TThe associated targets aim to reduce the global maternal mortality ratio; end preventable deaths of newborns and children; end the epidemics of AIDS, tuberculosis, malaria and other communicable diseases; reduce mortality from non-communicable diseases; strengthen the prevention and treatment of substance abuse; halve the number of deaths and injuries from road traffic accidents; ensure universal access to sexual and reproductive health-care services; achieve universal health coverage; and reduce the number of deaths and illnesses from hazardous chemicals and pollution.</p>
+                                    <p class="mb-4">Sustainable Development Goal 3 of the 2030 Agenda for Sustainable Development is to “ensure healthy lives and promoting well-being for all at all ages”. The associated targets aim to reduce the global maternal mortality ratio; end preventable deaths of newborns and children; end the epidemics of AIDS, tuberculosis, malaria and other communicable diseases; reduce mortality from non-communicable diseases; strengthen the prevention and treatment of substance abuse; halve the number of deaths and injuries from road traffic accidents; ensure universal access to sexual and reproductive health-care services; achieve universal health coverage; and reduce the number of deaths and illnesses from hazardous chemicals and pollution.</p>
                                     <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
@@ -1123,7 +914,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <!-- <script src="js/scripts.js"></script>-->
+       
 
     </body>
 </html>
