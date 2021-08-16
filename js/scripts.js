@@ -9,44 +9,44 @@
 
 window.addEventListener('DOMContentLoaded', event => {
 
-    // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink')
-        }
+	// Navbar shrink function
+	var navbarShrink = function () {
+		const navbarCollapsible = document.body.querySelector('#mainNav');
+		if (!navbarCollapsible) {
+			return;
+		}
+		if (window.scrollY === 0) {
+			navbarCollapsible.classList.remove('navbar-shrink')
+		} else {
+			navbarCollapsible.classList.add('navbar-shrink')
+		}
 
-    };
+	};
 
-    // Shrink the navbar 
-    navbarShrink();
+	// Shrink the navbar 
+	navbarShrink();
 
-    // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
+	// Shrink the navbar when page is scrolled
+	document.addEventListener('scroll', navbarShrink);
 
 
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
+	// Collapse responsive navbar when toggler is visible
+	const navbarToggler = document.body.querySelector('.navbar-toggler');
+	const responsiveNavItems = [].slice.call(
+		document.querySelectorAll('#navbarResponsive .nav-link')
+	);
+	responsiveNavItems.map(function (responsiveNavItem) {
+		responsiveNavItem.addEventListener('click', () => {
+			if (window.getComputedStyle(navbarToggler).display !== 'none') {
+				navbarToggler.click();
+			}
+		});
+	});
 
 });
 
 
-// function to handle success
+
 function init() {
 	document.getElementById("userText").value = "";
 }
@@ -54,6 +54,7 @@ window.onload = init;
 String.prototype.trim = function () {
 	return this.replace(/^\s+|\s+$/g, "");
 }
+// function to handle success i.e when the user clicks on the button to find SDGs
 function success() {
 
 	var check = false;
@@ -73,28 +74,31 @@ function success() {
 
 
 
-
-	/*     var myHeaders = new Headers();
-		 myHeaders.append("Content-Type", "application/json");
-
-		 var raw = JSON.stringify({
-			 "text": document.getElementById("userText").value
-		 });
-		 console.log(document.getElementById("userText").value)
-		 var requestOptions = {
-			 method: 'POST',
-			 headers: myHeaders,
-			 body: raw,
-			 redirect: 'follow'
-		 };
-
-		 fetch("http://127.0.0.1:5000/sdgOP", requestOptions)
-			 .then(response => response.text())
-			 .then(result => console.log(result))
-			 .catch(error => console.log('error', error));
-	 */
-	//js for result
+	//Fetch API to send and recieve data from the Algorithm
 	var myHeaders = new Headers();
+	myHeaders.append("Content-Type", "application/json");
+
+	var raw = JSON.stringify({
+		"text": document.getElementById("userText").value
+	});
+	console.log(document.getElementById("userText").value)
+	var requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: raw,
+		redirect: 'follow'
+	};
+
+	fetch("http://127.0.0.1:5000/sdgOP", requestOptions)
+		.then(res => res.json())
+		.then(data => obj = data)
+		.then(data => calculate(data))
+		.then(() => console.log(obj))
+		.catch(error => console.log('error', error));
+
+	//js for result--------------------------------------------------
+	//Used to test default response from the Back-end to front end.
+	/* var myHeaders = new Headers();
 	myHeaders.append("Content-Type", "application/json");
 
 	var raw = JSON.stringify({
@@ -115,9 +119,15 @@ function success() {
 		.then(data => calculate(data))
 		.then(() => console.log(obj))
 		.catch(error => console.log('error', error));
+		*/
 
+
+	//Generating dynamic DOM objects after getting the output from the algirithm
 	let calculate = (data) => {
-
+		var div = document.getElementById('algoResult');
+		while (div.firstChild) {
+			div.removeChild(div.firstChild);
+		}
 		for (var key in data) {
 			if (data.hasOwnProperty(key)) {
 				console.log(key + " -> " + data[key]);
@@ -193,8 +203,8 @@ function success() {
 
 					let spanElement2 = document.createElement('span')
 					spanElement2.setAttribute('class', 'progress-bar')
-						/*< !--spanElement2.style.cssText = 'animation: none' -- >*/
-							spanElement1.appendChild(spanElement2)
+					/*< !--spanElement2.style.cssText = 'animation: none' -- >*/
+					spanElement1.appendChild(spanElement2)
 
 
 
@@ -203,9 +213,9 @@ function success() {
 
 					let spanElement4 = document.createElement('span')
 					spanElement4.setAttribute('class', 'progress-bar' + key)
-						/*< !--spanElement4.style.animation = 'animation: loading-2  1.8s linear forwards'
-					-->*/
-						spanElement3.appendChild(spanElement4)
+					/*< !--spanElement4.style.animation = 'animation: loading-2  1.8s linear forwards'
+				-->*/
+					spanElement3.appendChild(spanElement4)
 
 
 					var style = document.createElement('style');
