@@ -89,7 +89,7 @@ function success() {
 		redirect: 'follow'
 	};
 
-	fetch("http://127.0.0.1:5000/sdgOP", requestOptions)
+	fetch("https://ce653f4caa99.ngrok.io/sdgOP", requestOptions)
 		.then(res => res.json())
 		.then(data => obj = data)
 		.then(data => calculate(data))
