@@ -570,6 +570,11 @@ progress {
   max-width: 100%;
   height: auto;
 }
+
+.img-fluid-modal {
+    max-width: 250px;
+    height: auto;
+}
 .img-small {
   height: 130px;
   width: 130px;
