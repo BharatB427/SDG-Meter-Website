@@ -135,9 +135,9 @@ function success() {
 				let anchorElement = document.createElement('a')
 				anchorElement.setAttribute('href', 'https://sdgs.un.org/goals')
 				let imageElement = document.createElement('img')
-				imageElement.setAttribute('class', 'img-fluid rounded mb-5')
+				imageElement.setAttribute('class', 'img-fluid-modal rounded mb-5')
 				imageElement.setAttribute('style', 'float: left;')
-				imageElement.src = 'assets/images/' + key + '.png'
+				imageElement.src = 'assets/images/' + key + '.jpg'
 				anchorElement.appendChild(imageElement)
 
 
