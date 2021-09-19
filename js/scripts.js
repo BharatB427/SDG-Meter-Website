@@ -89,7 +89,7 @@ function success() {
 		redirect: 'follow'
 	};
 
-	fetch("https://ce653f4caa99.ngrok.io/sdgOP", requestOptions)
+	fetch(" https://028f-62-160-8-100.ngrok.io/sdgOP", requestOptions)
 		.then(res => res.json())
 		.then(data => obj = data)
 		.then(data => calculate(data))
