@@ -7,11 +7,10 @@
     <meta name="author" content="" />
     <title>UNEP SDG Project</title>
 
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/circular.css" rel="stylesheet" />
@@ -19,6 +18,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+
+    <!--Google Analytics-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SG7G4LLGKH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-SG7G4LLGKH');
+    </script>
+
+
 </head>
 <body id="page-top">
 
@@ -26,7 +38,7 @@
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
             <!--  <a class="navbar-brand" href="#page-top"><img src="assets/un_environment_logo.png" alt="UNEP"  /></a> -->
-            <a class="navbar-brand" href="https://www.unep.org/"><img src="assets/image.svg" alt="UNEP" width=170 height=70 /></a>
+            <a class="navbar-brand" href="https://www.unep.org/"><img src="assets/UNEP_logo.svg.png" alt="UNEP"  width=85 height=auto/></a>
             <a class="navbar-brand" href="https://www.unep.org/"><img src="https://www.unep.org/themes/custom/UNEP_3Spot/img/SDG_Wheel_Transparent_WEB.png" alt="UNEP" width=75 height=auto /></a>
             <p><h3>SDG METER</h3></p><p style='font-style: italic;'></p>
             <!-- <a class="navbar-brand" href="#page-top"><img src="assets/Logosdg.png" alt="UNEP"   /></a>  -->
@@ -60,11 +72,11 @@
                     <br />
                     <h3 class="page-section-heading text-center text-white">Measuring how your text is related to the Sustainable Development Goals.</h3>
                     <br />
-                    <textarea id="userText" class="form-control text" cols="60" rows="4" placeholder="Enter your Text here (English Text only)"></textarea>
+                    <textarea id="userText" class="form-control text" cols="60" rows="4" placeholder="Enter your text here (English text only)"></textarea>
                     <p class="text-right" style="text-align:right;">
-                        Total word count: <span id="display_count">0</span> words. Words left: <span id="word_left">512</span>
+                        Words:<span id="display_count">0</span> / Words left: <span id="word_left">512</span>
                         <br>
-                </div>
+</div>
                 <div class="text-center mt-4">
 
                     <input type="button" class="btn btn-xl btn-outline-light" value="Find similarities with SDGs!" onclick="success()" />
@@ -128,8 +140,9 @@
     <section class="page-section portfolio" id="sdgs">
         <div class="container">
             <!-- Portfolio Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">SDGs</h2>
+            <h2 class="page-section-heading text-center text-secondary mb-0">Sustainable Development Goals</h2>
             <br>
+            <p class=" text-center text-secondary mb-0">click to learn more about each SDG</p>
             <br>
 
             <!-- Portfolio Grid Items-->
@@ -326,8 +339,8 @@
 
             </div>
             <div class="text-center mt-4">
-                <a class="btn btn-xl btn-outline-light" href="https://sdgs.un.org/">
-                    Find more about other SDGs
+                <a class="btn btn-xl btn-outline-light" href="https://sdgs.un.org/"  target="_blank">
+                    Learn more about the SDGs
                 </a>
             </div>
         </div>
@@ -336,17 +349,21 @@
     <section class="page-section bg-primary text-white mb-0" id="about">
         <div class="container">
             <!-- About Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+            <h2 class="page-section-heading text-center text-white">About this tool</h2>
             <br>
             <br>
             <!-- About Section Content-->
             <div class="row">
-                <div class="col-lg-4 ms-auto"><p class="lead">A myriad of textual documents produced/consumed by UNEP need to be mapped to the SDGs (project proposals, reports, briefings, etc.). Such mapping exercises are time consuming for experts and rely on personal knowledge of the links between topics and the SDGs. While UNEP has experts in many fields, links to the SDGs that are outside our expertise can be overlooked. Our SDG Meter web platform is proposed as a tool to help analyze text via a neural network-based technique for natural language processing (NLP) pre-training that assesses the relationship to each of the 17 SDGs. </p></div>
+                <div class="col-lg-4 ms-auto"><p class="lead">The SDG-meter is a pilot artificial intelligence tool developed by UNEP via a neural network-based technique for natural language processing (NLP) pre-training. It suggests interlinkages among user-submitted text and terminology from the 17 Sustainable Development Goals. While applications of this tool are being further explored, we departed from the practical use case where documents produced and consumed by UNEP needed to be mapped to the SDGs (project proposals, reports, briefings, etc.). Such mappings are time consuming and rely on personal knowledge of the links between topics and the SDGs.</p></div>
                 <div class="col-lg-4 me-auto">
                     <p class="lead">
-                        This technique is based on the BERT (Bidirectional Encoder Representations from Transformers) model developped by Google researchers <a href="https://arxiv.org/pdf/1810.04805.pdf" style="color:orange">(see paper here)</a>  with the use of the multilabel text classification feature.
-                        Our algorithm has been trained with about 3000 texts and labels extracted from the categories "News", "Guest articles" and "Policy Briefs" of the <a href="https://sdg.iisd.org/" style="color:orange">IISD-SDG website. </a>
-                        Our method has an accuracy of 98% on 500, which means that for 500 test texts our method correctly classifies 490 texts. To have an idea of all the capacities of BERT and also its functioning explained in a very simple way we recommend you this short <a href="https://youtu.be/ioGry-89gqE" style="color:orange">video.</a>
+                        This technique is based on the BERT (Bidirectional Encoder Representations from Transformers) 
+                        model developed by Google researchers <a href="https://arxiv.org/pdf/1810.04805.pdf" style="color:orange">(see paper here)</a> 
+                        with the use of the multilabel text classification feature. Our algorithm has been trained with about 3000 texts and labels extracted 
+                        from the categories "News", "Guest articles" and "Policy Briefs" of the <a href="https://sdg.iisd.org/" style="color:orange">IISD-SDG website. </a>
+                        Our method has an accuracy of 98% on 500, which means that for 500 test texts our method correctly classifies 490 texts. To have an idea of all
+                        the capacities of BERT and also its functioning explained in a very simple way we recommend you this short  
+                        <a href="https://youtu.be/ioGry-89gqE" style="color:orange">video.</a>
                     </p>
                 </div>
             </div>
@@ -374,34 +391,34 @@
         <div class="container">
             <div class="row">
                 <!-- Footer Location-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
+                <!--<div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Location</h4>
                     <p class="lead mb-0">
                         ISEP
                         <br />
                         NDL, Paris
                     </p>
-                </div>
+                </div>-->
                 <!-- Footer Social Icons-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="col-md-8 offset-md-2">
                     <h4 class="text-uppercase mb-4">Around the Web</h4>
                     <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/SustDev"><i class="fab fa-fw fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/SustDev"><i class="fab fa-fw fa-twitter"></i></a>
 
                 </div>
                 <!-- Footer About Text-->
-                <div class="col-lg-4">
+               <!-- <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">About This project</h4>
                     <p class="lead mb-0">
                         Web project to visualize the algorithm developed!
                     </p>
-                </div>
+                </div>-->
             </div>
         </div>
     </footer>
     <!-- Copyright Section-->
     <div class="copyright py-4 text-center text-white">
-        <div class="container"><small>SGD meter - UNEP</small></div>
+        <div class="container"><small>An initiative by UNEP and ISEP</small></div>
     </div>
     <!-- Portfolio Modals-->
     <!-- Portfolio Modal 1-->
