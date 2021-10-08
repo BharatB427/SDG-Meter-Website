@@ -137,7 +137,7 @@ function success() {
 				let imageElement = document.createElement('img')
 				imageElement.setAttribute('class', 'img-fluid-modal rounded mb-5')
 				imageElement.setAttribute('style', 'float: left;')
-				imageElement.src = 'assets/images/' + key + '.jpg'
+				imageElement.src = 'assets/images/' + key + '.png'
 				anchorElement.appendChild(imageElement)
 
 
