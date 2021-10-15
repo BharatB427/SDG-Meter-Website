@@ -1,6 +1,6 @@
 # SDG-Meter-Website
 ***
-UI to find similarities with UNEP's SDG goal and your TEXT.
+UI to find similarities with UN's SDG goal and your TEXT.
 
 ## Website 
 The website was designed with respect to UNEP's official site i.e unep.org 
@@ -21,4 +21,11 @@ JS is then used to dynamically generate the content.
 Ngrok (for tunneling)
 
 ***
-Bharat BAHADUR.
+
+Joint work ISEP and UNEP
+Web Developer: Bharat BAHADUR (ISEP)
+Contributors: 
+Jade Guisiano (ISEP-UNEP)
+Robert Rodriguez (UNEP)
+Jonathas De Mello (UNEP)
+Raja Chiky (ISEP)
