@@ -23,9 +23,9 @@ Ngrok (for tunneling)
 ***
 
 Joint work ISEP and UNEP
-Web Developer: Bharat BAHADUR (ISEP)
+Web Developer: Bharat BAHADUR (ISEP).
 Contributors: 
-Jade Guisiano (ISEP-UNEP)
-Robert Rodriguez (UNEP)
-Jonathas De Mello (UNEP)
-Raja Chiky (ISEP)
+Jade Guisiano (ISEP-UNEP, 
+Robert Rodriguez (UNEP), 
+Jonathas De Mello (UNEP), 
+Raja Chiky (ISEP).
